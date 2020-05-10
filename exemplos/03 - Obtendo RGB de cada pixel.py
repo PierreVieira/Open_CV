@@ -14,7 +14,7 @@ def info_rgb_pixel(obj_img, altura, largura):
 
 
 def main():
-    obj_img = cv2.imread('../Resources/my_imgs/pierre_vieira_13_anos.jpg')
+    obj_img = cv2.imread('../resources/my_imgs/pierre_vieira_13_anos.jpg')
     altura, largura, canais_de_cor = obj_img.shape
     info_rgb_pixel(obj_img, altura, largura)
 
