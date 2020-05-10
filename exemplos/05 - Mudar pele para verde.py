@@ -26,7 +26,7 @@ def percorrer_imagem(obj_img, altura, largura):
 
 
 def main():
-    obj_img = cv2.imread('../imgs/pierre_vieira_13_anos.jpg')  # Vai ler a imagem, o valor opcional 0 deixa preto e branco
+    obj_img = cv2.imread('../Resources/my_imgs/pierre_vieira_13_anos.jpg')  # Vai ler a imagem, o valor opcional 0 deixa preto e branco
     try:
         altura, largura, canais_de_cor = obj_img.shape  # Carrega a largura, altura e canais de cor
     except ValueError:

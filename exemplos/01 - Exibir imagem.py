@@ -9,7 +9,7 @@ def show_image(obj_img):
 
 
 def main():
-    obj_img = cv2.imread('../imgs/pierre_vieira.png')  # Lê a imagem
+    obj_img = cv2.imread('../Resources/my_imgs/pierre_vieira.png')  # Lê a imagem
     show_image(obj_img)
 
 

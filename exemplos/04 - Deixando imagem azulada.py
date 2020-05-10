@@ -26,7 +26,7 @@ def deixar_azulado(obj_img, altura, largura):
 
 
 def main():
-    obj_img = cv2.imread('../imgs/pierre_vieira_13_anos.jpg')  # Vai ler a imagem
+    obj_img = cv2.imread('../Resources/my_imgs/pierre_vieira_13_anos.jpg')  # Vai ler a imagem
     altura, largura, canais_de_cor = obj_img.shape
     deixar_azulado(obj_img, altura, largura)
     show_image(obj_img)
