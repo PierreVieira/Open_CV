@@ -34,8 +34,8 @@ def area_de_uma_pessoa(area):
     return int(area) > area_ret_min
 
 
-def make_contours(x, y, largura, altura, frame, centro, qtde_pessoas):
-    cv2.putText(frame, str(qtde_pessoas), (x + 5, y + 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, AMARELO, 2)
+def make_contours(x, y, largura, altura, frame, centro, i):
+    cv2.putText(frame, str(i), (x + 5, y + 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, AMARELO, 2)
     cv2.circle(frame, centro, 4, VERMELHO, -1)
     cv2.rectangle(frame, (x, y), (x + largura, y + altura), VERDE, 2)
 
@@ -49,22 +49,22 @@ def infos_text(frame):
 def make_count(frame, closing):
     global total, up, down
     contours, hierarchy = cv2.findContours(closing, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    qtde_pessoas = 0
+    i = 0
     for contour in contours:
         x, y, largura, altura = cv2.boundingRect(contour)
         area = cv2.contourArea(contour)
         if area_de_uma_pessoa(area):
             centro = center(x, y, largura, altura)
-            make_contours(x, y, largura, altura, frame, centro, qtde_pessoas)
-            if len(cache_detects) <= qtde_pessoas:  # O cache ainda não tem a pessoa atual
+            make_contours(x, y, largura, altura, frame, centro, i)
+            if len(cache_detects) <= i:  # O cache ainda não tem a pessoa atual
                 cache_detects.append([])  # Adiciona uma lista que irá guardar os dados dessa pessoa
-            if pos_line - offset < centro[qtde_pessoas] < pos_line + offset:
-                cache_detects[qtde_pessoas].append(centro)
+            if pos_line - offset < centro[1] < pos_line + offset:
+                cache_detects[i].append(centro)
             else:
-                cache_detects[qtde_pessoas].clear()
-            qtde_pessoas += 1
+                cache_detects[i].clear()
+            i += 1
 
-    if len(contours) == 0:
+    if i == 0 or len(contours) == 0:
         cache_detects.clear()
 
     else:
