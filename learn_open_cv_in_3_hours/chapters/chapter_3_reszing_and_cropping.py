@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-img = cv2.imread('../resources/lambo.PNG')
+img = cv2.imread('../../resources/lambo.PNG')
 print(img.shape)
 # (462, 623, 3) -> (altura, largura, número de canais de cor, no caso 3 pq é rgb)
 

@@ -38,7 +38,7 @@ def stackImages(scale, imgArray):
     return ver
 
 
-path = '../resources/lambo.png'
+path = '../../resources/lambo.PNG'
 cv2.namedWindow("TrackBars")
 cv2.resizeWindow("TrackBars", 640, 240)
 cv2.createTrackbar("Hue Min", "TrackBars", 0, 179, empty)
